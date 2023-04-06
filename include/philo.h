@@ -62,4 +62,7 @@ int	my_errors(char *str);
 // checking_args.c
 int	check_args(t_input *inputs, char **av, int ac);
 
+// create_philo.c
+int	create_philos(t_vargs *vargs, int odd_even);
+
 #endif
