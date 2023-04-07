@@ -26,13 +26,14 @@ typedef struct s_fork
 
 typedef struct s_philo
 {
-	t_fork	fork;
-	int		id;
-	int		times_ate;
-	int		state;
-	int		time_to_die;
+	t_fork		fork;
+	long long	last_eat_time;	
+	int			id;
+	int			times_ate;
+	int			state;
+	int			time_to_die;
 	pthread_t	philo;
-}		t_philo;
+}						t_philo;
 
 
 typedef struct s_input
@@ -44,13 +45,14 @@ typedef struct s_input
 	int	times_eat;
 }				t_input;
 
-typedef struct s_vargs
+typedef struct s_vars
 {
 	int		game_over;
 	t_input	inputs;
 	t_philo	*philos;
 	pthread_mutex_t *forks;
-}				t_vargs;
+	pthread_mutex_t	writing_lock;
+}				t_vars;
 
 
 // utils.c
@@ -63,6 +65,12 @@ int	my_errors(char *str);
 int	check_args(t_input *inputs, char **av, int ac);
 
 // create_philo.c
-int	create_philos(t_vargs *vargs, int odd_even);
+int	create_philos(t_vars *vars, int odd_even);
+
+// main.c
+long long	get_time_in_ms(void);
+
+// init_mutex.c
+int	init_mutex(t_vars *vars);
 
 #endif
