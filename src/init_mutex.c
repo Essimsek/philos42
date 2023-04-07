@@ -16,7 +16,5 @@ int	init_mutex(t_vars *vars)
 	}
 	if (pthread_mutex_init(&vars->writing_lock, NULL) != 0)
 		return (FALSE);
-	if (pthread_mutex_init(&vars->writing_lock, NULL) != 0)
-		return (FALSE);
 	return (TRUE);
 }
