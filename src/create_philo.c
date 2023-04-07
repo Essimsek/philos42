@@ -2,9 +2,10 @@
 
 static void	*loop(void *philo)
 {
-	t_philo	arg = *(t_philo *)philo;
-	printf("%lld: ", arg.last_eat_time);
-	printf("Thread with id: %d created!\n", arg.id);
+	t_philo	*arg = (t_philo *)philo;
+	printf("%lld: ", arg->last_eat_time);
+	printf("Thread with id: %d created! ", arg->id);
+	printf("%d\n", arg->vars->game_over);
 	return (NULL);
 }
 
@@ -16,6 +17,7 @@ static void	assignment_for_philosss(t_vars *vars, int i)
 			vars->philos[i].fork.right = 0;
 			vars->philos[i].times_ate = 0;
 			vars->philos[i].time_to_die = 0;
+			vars->philos[i].vars = vars;
 			vars->philos[i].state = STATE_THINKING;
 }
 

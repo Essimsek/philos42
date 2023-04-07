@@ -32,6 +32,7 @@ typedef struct s_philo
 	int			times_ate;
 	int			state;
 	int			time_to_die;
+	struct s_vars		*vars;
 	pthread_t	philo;
 	pthread_mutex_t	mutex;
 }						t_philo;
