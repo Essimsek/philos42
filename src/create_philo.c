@@ -1,12 +1,14 @@
 #include "../include/philo.h"
 
-static void	*loop()
+static void	*loop(void *philo)
 {
-	printf("Thread was created!\n");
+	t_philo	arg = *(t_philo *)philo;
+	printf("%lld: ", arg.last_eat_time);
+	printf("Thread with id: %d created!\n", arg.id);
 	return (NULL);
 }
 
-static void	assignment_for_philosss(t_vars *vars, int	i)
+static void	assignment_for_philosss(t_vars *vars, int i)
 {
 			vars->philos[i].id = i + 1;
 			vars->philos[i].last_eat_time = get_time_in_ms();
@@ -31,7 +33,7 @@ int	create_philos(t_vars *vars, int odd_even)
 		{
 			assignment_for_philosss(vars, i);
 			vars->philos[i].philo = malloc(sizeof(pthread_t));
-			if (pthread_create(&vars->philos[i].philo, NULL, &loop, NULL) != 0)
+			if (pthread_create(&vars->philos[i].philo, NULL, &loop, &vars->philos[i]) != 0)
 				return (FALSE);
 		}
 		usleep(1000);
