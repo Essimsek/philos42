@@ -16,6 +16,7 @@
 # define STATE_EATING 3
 # define STATE_SLEEPING 4
 # define STATE_DEAD 5
+# define STATE_FORK 6
 
 typedef struct s_fork
 {
@@ -31,10 +32,9 @@ typedef struct s_philo
 	int			id;
 	int			times_ate;
 	int			state;
-	int			time_to_die;
 	struct s_vars		*vars;
+	pthread_mutex_t		mutex;
 	pthread_t	philo;
-	pthread_mutex_t	mutex;
 }						t_philo;
 
 
@@ -44,11 +44,13 @@ typedef struct s_input
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
-	int	times_eat;
+	int	min_times_eat;
 }				t_input;
 
 typedef struct s_vars
 {
+	long long	init_time;
+	int		philos_ate_count;
 	int		game_over;
 	t_input	inputs;
 	t_philo	*philos;
@@ -58,7 +60,9 @@ typedef struct s_vars
 
 
 // utils.c
-int	my_atoi(char *str);
+int		my_atoi(char *str);
+void	printmessage(t_philo *philo, int state);
+int		print_philo_state(t_philo *philo, int state);
 
 // error_handling.c
 int	my_errors(char *str);
@@ -67,12 +71,18 @@ int	my_errors(char *str);
 int	check_args(t_input *inputs, char **av, int ac);
 
 // create_philo.c
-int	create_philos(t_vars *vars, int odd_even);
+int	create_threads(t_vars *vars, int odd_even);
 
 // main.c
 long long	get_time_in_ms(void);
 
-// init_mutex.c
+// init.c
 int	init_mutex(t_vars *vars);
+int	init_philos(t_vars *vars);
+
+// routines.c
+int	philo_eating(t_philo *philo);
+int	philo_sleeping(t_philo *philo);
+int philo_thinking(t_philo *philo);
 
 #endif

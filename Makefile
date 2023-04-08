@@ -4,7 +4,8 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 LFLAGS = -pthread
 
-SRCS = ./src/main.c ./src/utils.c ./src/error_handling.c ./src/checking_args.c ./src/create_philo.c ./src/init_mutex.c
+SRCS = ./src/main.c ./src/utils.c ./src/error_handling.c ./src/checking_args.c \
+		./src/create_philo.c ./src/init.c ./src/routines.c
 
 OBJS = $(SRCS:.c=.o)
 

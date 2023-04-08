@@ -5,7 +5,7 @@ static int	check_inputs(t_input *inputs, int num_of_args)
 	if (!inputs->num_of_philo || !inputs->time_to_die \
 					|| !inputs->time_to_eat || !inputs->time_to_sleep)
 		return (FALSE);
-	if (num_of_args == 6 && !inputs->times_eat)
+	if (num_of_args == 6 && !inputs->min_times_eat)
 		return (FALSE);
 	return (TRUE);
 }
@@ -19,7 +19,9 @@ static int	init_inputs(t_input *inputs, char **av, int num_of_args)
 		inputs->time_to_eat = my_atoi(av[3]);
 		inputs->time_to_sleep = my_atoi(av[4]);
 		if (num_of_args == 6)
-			inputs->times_eat = my_atoi(av[5]);
+			inputs->min_times_eat = my_atoi(av[5]);
+		else
+			inputs->min_times_eat = FALSE;
 		return (TRUE);
 	}
 	return (FALSE);
