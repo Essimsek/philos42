@@ -21,7 +21,7 @@ static int	init_inputs(t_input *inputs, char **av, int num_of_args)
 		if (num_of_args == 6)
 			inputs->min_times_eat = my_atoi(av[5]);
 		else
-			inputs->min_times_eat = FALSE;
+			inputs->min_times_eat = -1;
 		return (TRUE);
 	}
 	return (FALSE);

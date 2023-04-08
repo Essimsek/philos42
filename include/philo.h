@@ -85,4 +85,7 @@ int	philo_eating(t_philo *philo);
 int	philo_sleeping(t_philo *philo);
 int philo_thinking(t_philo *philo);
 
+// dead_check.c
+void	dead_check(t_vars *vars);
+
 #endif
