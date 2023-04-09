@@ -45,7 +45,8 @@ int	print_philo_state(t_philo *philo, int state)
 	pthread_mutex_lock(&vars->writing_lock);
 	if (state == STATE_EATING)
 		philo->times_ate++;
-	if (philo->times_ate == vars->inputs.min_times_eat)
+	if (philo->times_ate == vars->inputs.min_times_eat && \
+		state == STATE_EATING)
 		vars->philos_ate_count++;
 	if (vars->game_over == TRUE)
 	{

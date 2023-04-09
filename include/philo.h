@@ -88,4 +88,7 @@ int philo_thinking(t_philo *philo);
 // dead_check.c
 void	dead_check(t_vars *vars);
 
+// free.c
+void	free_all(t_vars *vars);
+
 #endif

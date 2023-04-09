@@ -1,11 +1,12 @@
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
 
-LFLAGS = -pthread
+LFLAGS = -pthread -fsanitize=thread
 
 SRCS = ./src/main.c ./src/utils.c ./src/error_handling.c ./src/checking_args.c \
-		./src/create_philo.c ./src/init.c ./src/routines.c ./src/dead_check.c
+		./src/create_philo.c ./src/init.c ./src/routines.c ./src/dead_check.c \
+		./src/free.c
 
 OBJS = $(SRCS:.c=.o)
 

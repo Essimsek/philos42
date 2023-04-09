@@ -7,8 +7,8 @@ int	eating(t_philo *philo)
 
 	vars = philo->vars;
 	pthread_mutex_lock(&vars->forks[philo->fork.left]);
-	pthread_mutex_lock(&vars->forks[philo->fork.right]);
 	is_true = print_philo_state(philo, STATE_FORK);
+	pthread_mutex_lock(&vars->forks[philo->fork.right]);
 	is_true = print_philo_state(philo, STATE_FORK);
 	is_true = print_philo_state(philo, STATE_EATING);
 	pthread_mutex_lock(&philo->mutex);

@@ -41,6 +41,8 @@ int	create_threads(t_vars *vars, int odd_even)
 		{
 			assignment_for_philosss(vars, i);
 			vars->philos[i].philo = malloc(sizeof(pthread_t));
+			if (pthread_mutex_init(&vars->philos[i].mutex, NULL) != 0)
+				return (FALSE);
 			if (pthread_create(&vars->philos[i].philo, NULL, philo_loop, &vars->philos[i]) != 0)
 				return (FALSE);
 		}
