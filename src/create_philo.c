@@ -46,6 +46,7 @@ int	create_threads(t_vars *vars, int odd_even)
 			if (pthread_create(&vars->philos[i].philo, NULL, philo_loop, &vars->philos[i]) != 0)
 				return (FALSE);
 		}
+		usleep(1000);
 	}
 	if (odd_even == 1)
 		create_threads(vars, 0);

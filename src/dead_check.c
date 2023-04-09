@@ -5,6 +5,7 @@ void	dead_check(t_vars *vars)
 	int	i;
 	int	is_true;
 
+	is_true = TRUE;
 	while (1)
 	{
 		i = -1;
