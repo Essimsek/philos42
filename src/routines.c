@@ -8,6 +8,11 @@ int	eating(t_philo *philo)
 	vars = philo->vars;
 	pthread_mutex_lock(&vars->forks[philo->fork.left]);
 	is_true = print_philo_state(philo, STATE_FORK);
+	if (philo->fork.left == philo->fork.right)
+	{
+		usleep(1000 * vars->inputs.time_to_die);
+		return (FALSE);
+	}
 	pthread_mutex_lock(&vars->forks[philo->fork.right]);
 	is_true = print_philo_state(philo, STATE_FORK);
 	is_true = print_philo_state(philo, STATE_EATING);

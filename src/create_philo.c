@@ -27,7 +27,6 @@ static void	assignment_for_philosss(t_vars *vars, int i)
 			vars->philos[i].fork.right = 0;
 			vars->philos[i].times_ate = 0;
 			vars->philos[i].vars = vars;
-			vars->philos[i].state = STATE_THINKING;
 }
 
 int	create_threads(t_vars *vars, int odd_even)
