@@ -8,6 +8,7 @@ void	dead_check(t_vars *vars)
 	is_true = TRUE;
 	while (1)
 	{
+		usleep(100);
 		i = -1;
 		while (++i < vars->inputs.num_of_philo)
 		{
