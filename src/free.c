@@ -1,6 +1,6 @@
 #include "../include/philo.h"
 
-void	destroy_mutexes(t_vars *vars)
+static void	destroy_mutexes(t_vars *vars)
 {
 	int	i;
 
