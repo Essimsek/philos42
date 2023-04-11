@@ -20,6 +20,7 @@ void free_philos(t_vars *vars)
 	i = -1;
 	while (++i < vars->inputs.num_of_philo)
 		free(&vars->philos[i]);
+	free(vars->philos);
 }
 
 void	free_all(t_vars *vars)

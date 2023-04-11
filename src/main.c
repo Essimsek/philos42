@@ -33,6 +33,6 @@ int	main(int ac, char **av)
 	dead_check(&vars);
 	while (++i < vars.inputs.num_of_philo)
 		pthread_join(vars.philos[i].philo, NULL);
-	system("leaks philo");
+	free_all(&vars);
 	return (0);
 }
