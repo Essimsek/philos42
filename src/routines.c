@@ -10,7 +10,7 @@ int	eating(t_philo *philo)
 	is_true = print_philo_state(philo, STATE_FORK);
 	if (philo->fork.left == philo->fork.right)
 	{
-		usleep(1000 * vars->inputs.time_to_die);
+		wait_ms(vars->inputs.time_to_die);
 		return (FALSE);
 	}
 	pthread_mutex_lock(&vars->forks[philo->fork.right]);
@@ -19,7 +19,7 @@ int	eating(t_philo *philo)
 	pthread_mutex_lock(&philo->mutex);
 	philo->last_eat_time = get_time_in_ms();
 	pthread_mutex_unlock(&philo->mutex);
-	usleep(vars->inputs.time_to_eat * 1000);
+	wait_ms(vars->inputs.time_to_eat);
 	pthread_mutex_unlock(&vars->forks[philo->fork.left]);
 	pthread_mutex_unlock(&vars->forks[philo->fork.right]);
 	return (is_true);
@@ -40,7 +40,7 @@ int	philo_sleeping(t_philo *philo)
 	int	is_true;
 
 	is_true = print_philo_state(philo, STATE_SLEEPING);
-	usleep(philo->vars->inputs.time_to_sleep * 1000);
+	wait_ms(philo->vars->inputs.time_to_sleep);
 	return (is_true);
 }	
 

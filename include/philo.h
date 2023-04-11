@@ -75,6 +75,7 @@ int	create_threads(t_vars *vars, int odd_even);
 
 // main.c
 long long	get_time_in_ms(void);
+void		wait_ms(int	ms);
 
 // init.c
 int	init_mutex(t_vars *vars);

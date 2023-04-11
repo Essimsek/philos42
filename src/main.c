@@ -8,6 +8,13 @@ long long	get_time_in_ms(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
+void	wait_ms(int	ms)
+{
+	long long start_time;
+	start_time = get_time_in_ms();
+	while (get_time_in_ms() - start_time < ms)
+		usleep(30);
+}
 
 int	main(int ac, char **av)
 {
