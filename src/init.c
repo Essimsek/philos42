@@ -4,8 +4,6 @@ int	init_mutex(t_vars *vars)
 {
 	int	i;
 
-	if (vars->philos == NULL)
-		return (FALSE);
 	vars->forks = malloc(sizeof(pthread_mutex_t) * vars->inputs.num_of_philo + 1);
 	if (vars->forks == NULL)
 		return (my_errors("malloc failed!\n"));
