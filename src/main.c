@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esimsek <esimsek@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/12 23:14:26 by esimsek           #+#    #+#             */
+/*   Updated: 2023/04/12 23:14:27 by esimsek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/philo.h"
 
 long long	get_time_in_ms(void)
@@ -8,9 +20,10 @@ long long	get_time_in_ms(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-void	wait_ms(int	ms)
+void	wait_ms(int ms)
 {
-	long long start_time;
+	long long	start_time;
+
 	start_time = get_time_in_ms();
 	while (get_time_in_ms() - start_time < ms)
 		usleep(30);

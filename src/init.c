@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esimsek <esimsek@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/12 23:17:20 by esimsek           #+#    #+#             */
+/*   Updated: 2023/04/12 23:17:21 by esimsek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/philo.h"
 
 int	init_mutex(t_vars *vars)
 {
 	int	i;
 
-	vars->forks = malloc(sizeof(pthread_mutex_t) * vars->inputs.num_of_philo + 1);
+	vars->forks = malloc(sizeof(pthread_mutex_t) * vars->inputs.num_of_philo);
 	if (vars->forks == NULL)
 		return (my_errors("malloc failed!\n"));
 	i = 0;

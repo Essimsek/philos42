@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_philo.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esimsek <esimsek@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/12 23:16:19 by esimsek           #+#    #+#             */
+/*   Updated: 2023/04/12 23:16:20 by esimsek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/philo.h"
 
 void	*philo_loop(void *philoshopher)
@@ -41,7 +53,8 @@ int	create_threads(t_vars *vars, int odd_even)
 			assignment_for_philosss(vars, i);
 			if (pthread_mutex_init(&vars->philos[i].mutex, NULL) != 0)
 				return (FALSE);
-			if (pthread_create(&vars->philos[i].philo, NULL, philo_loop, &vars->philos[i]) != 0)
+			if (pthread_create(&vars->philos[i].philo, NULL, philo_loop, \
+					&vars->philos[i]) != 0)
 				return (FALSE);
 		}
 		usleep(1000);

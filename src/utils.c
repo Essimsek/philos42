@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esimsek <esimsek@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/12 23:17:24 by esimsek           #+#    #+#             */
+/*   Updated: 2023/04/12 23:17:25 by esimsek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/philo.h"
 
 int	my_atoi(char *str)
@@ -56,7 +68,8 @@ int	print_philo_state(t_philo *philo, int state)
 		return (FALSE);
 	}
 	printmessage(philo, state);
-	if (state == STATE_DEAD || vars->inputs.num_of_philo == vars->philos_ate_count)
+	if (state == STATE_DEAD || \
+		vars->inputs.num_of_philo == vars->philos_ate_count)
 		vars->game_over = TRUE;
 	pthread_mutex_unlock(&vars->writing_lock);
 	return (TRUE);

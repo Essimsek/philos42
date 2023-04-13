@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   routines.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esimsek <esimsek@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/12 23:16:12 by esimsek           #+#    #+#             */
+/*   Updated: 2023/04/12 23:16:13 by esimsek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/philo.h"
 
 int	eating(t_philo *philo)
@@ -44,7 +56,7 @@ int	philo_sleeping(t_philo *philo)
 	return (is_true);
 }	
 
-int philo_thinking(t_philo *philo)
+int	philo_thinking(t_philo *philo)
 {
 	int	is_true;
 
